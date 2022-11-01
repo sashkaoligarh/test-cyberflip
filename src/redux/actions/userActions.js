@@ -1,5 +1,4 @@
 import {
-  SET_USERS,
   EDIT_USER,
   DELETE_USER,
   SET_CURRENT_USER,

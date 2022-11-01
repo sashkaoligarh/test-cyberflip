@@ -1,4 +1,3 @@
-export const SET_USERS = 'SET_USERS'
 export const EDIT_USER = 'EDIT_USER'
 export const DELETE_USER = 'DELETE_USER'
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
@@ -36,11 +35,6 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USERS:
-      return {
-        ...state,
-        users: action.payload,
-      };
     case SET_CURRENT_USER:
       return {
         ...state,

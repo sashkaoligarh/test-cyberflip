@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect, useRef} from 'react';
+import React from 'react';
 import {
   Container,
   InputContainer,
