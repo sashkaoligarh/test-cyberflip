@@ -9,8 +9,8 @@ import {
 } from "./styles";
 import Settings from "./settings.svg";
 import Remove from "./remove.svg";
-import { removeOrder } from "../../../../redux/actions/orderActions";
-import { setIsEditOrder, setEditedOrder } from "../../../../redux/actions/orderActions";
+import {editUser, setCurrentUser} from '../../../../redux/actions/userActions'
+import { setIsEditOrder, setEditedOrder,removeOrder } from "../../../../redux/actions/orderActions";
 import ModalOrderEdit from "./modalEditOrder";
 const OrderItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -37,7 +37,14 @@ const OrderItem = ({ item }) => {
         <img alt='no img' src={Settings} />
         Edit Order
       </SettingsBox>
-      <SettingsBox onClick={() => dispatch(removeOrder(item.id))}>
+      <SettingsBox onClick={() => {
+        dispatch(editUser({
+          ...item.user,
+          orders: item.user.orders.filter(order => order.id !== item.id)
+        }))
+        dispatch(setCurrentUser(item.user.id))
+        dispatch(removeOrder(item.id))
+        }}>
         <img alt='no img' src={Remove} />
         Remove Order
       </SettingsBox>
